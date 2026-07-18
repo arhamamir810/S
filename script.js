@@ -8,60 +8,64 @@ const noBtn = document.getElementById("noBtn");
 const question = document.getElementById("question");
 
 
-let yesIndex = 0;
+let questionIndex = 0;
 let noIndex = 0;
 
 
-const yesQuestions = [
+const questions = [
     "Do you forgive me? ❤️",
 
     "Promise me you won't give up on our friendship ever again? ❤️😊",
 
-    "Promise me we will always try to understand each other? 💕",
+    "Promise me we will always trust and understand each other? 💕",
 
-    "Promise me we will keep making beautiful memories together? ❤️✨",
+    "Promise me we will keep making beautiful memories together? ✨",
 
-    "Can we start fresh with a smile? 😊💖"
+    "Promise me we will always try to make each other smile? 😊",
+
+    "Can we start fresh and be happy like before? 🧸❤️"
 ];
 
 
-const noMessages = [
-    "Are you sure? ❤️",
+const noReplies = [
+    "Are you sure? Think about our good memories ❤️",
 
-    "Think about our beautiful memories again 😊",
+    "Maybe give it one more thought? 😊",
 
-    "I really hope we can smile like before 💕",
+    "I really value our friendship 💕",
 
-    "One more chance to make things better? 🧸",
+    "I hope we can smile together again 🧸",
 
-    "I will always value our friendship ❤️"
+    "I will always wish the best for our friendship ❤️"
 ];
 
 
-startBtn.onclick = function () {
+startBtn.onclick = function() {
 
     popup.style.display = "flex";
 
-    yesIndex = 0;
+    questionIndex = 0;
     noIndex = 0;
 
-    question.innerHTML = yesQuestions[yesIndex];
+    question.innerHTML = questions[questionIndex];
 
 };
 
 
 
-yesBtn.onclick = function () {
-
-    yesIndex++;
+yesBtn.onclick = function() {
 
     noIndex = 0;
 
-    if (yesIndex < yesQuestions.length) {
+    questionIndex++;
 
-        question.innerHTML = yesQuestions[yesIndex];
 
-    } else {
+    if(questionIndex < questions.length) {
+
+        question.innerHTML = questions[questionIndex];
+
+    } 
+    else {
 
         popup.style.display = "none";
         final.style.display = "flex";
@@ -72,14 +76,17 @@ yesBtn.onclick = function () {
 
 
 
-noBtn.onclick = function () {
+noBtn.onclick = function() {
 
-    question.innerHTML = noMessages[noIndex];
+    question.innerHTML = noReplies[noIndex];
 
     noIndex++;
 
-    if (noIndex >= noMessages.length) {
+
+    if(noIndex >= noReplies.length) {
+
         noIndex = 0;
+
     }
 
 };

@@ -7,36 +7,61 @@ const noBtn = document.getElementById("noBtn");
 
 const question = document.getElementById("question");
 
-let index = 0;
 
-let questions = [
-    "Do you think we can smile again? 😊",
-    "Can we keep our good memories and move forward? ❤️",
-    "Will you give me a chance to make you smile again? 🧸",
-    "Can we be like before? 💕",
-    "One more chance? 🥺"
+let stage = 0;
+let noIndex = 0;
+
+
+let yesQuestions = [
+    "Do you forgive me? ❤️",
+    "Promise me you won't give up on our friendship ever again? 🥺",
+    "Promise me we will always try to understand each other? 💕",
+    "Promise me we will keep making beautiful memories together? 🧸",
+    "Can we start fresh with a smile? 😊"
+];
+
+
+let noMessages = [
+    "Are you sure? 🥺",
+    "Think again, please? ❤️",
+    "I still hope we can fix things 😊",
+    "One more chance? 🧸",
+    "I will keep trying to make you smile 💕"
 ];
 
 
 startBtn.onclick = function () {
     popup.style.display = "flex";
+    question.innerHTML = yesQuestions[0];
 };
 
 
 yesBtn.onclick = function () {
-    popup.style.display = "none";
-    final.style.display = "flex";
+
+    stage++;
+
+    if (stage < yesQuestions.length) {
+
+        question.innerHTML = yesQuestions[stage];
+
+    } else {
+
+        popup.style.display = "none";
+        final.style.display = "flex";
+
+    }
+
 };
 
 
 noBtn.onclick = function () {
 
-    index++;
+    question.innerHTML = noMessages[noIndex];
 
-    if (index >= questions.length) {
-        index = 0;
+    noIndex++;
+
+    if (noIndex >= noMessages.length) {
+        noIndex = 0;
     }
-
-    question.innerHTML = questions[index];
 
 };

@@ -1,0 +1,173 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ffd6e7,#ffeaf5,#fff7fb);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* Floating Hearts */
+
+body::before{
+    content:"💖 💕 🌸 ❤️ 💗 💖 🌸";
+    position:fixed;
+    top:-20%;
+    left:0;
+    width:100%;
+    font-size:30px;
+    opacity:.25;
+    animation:fall 15s linear infinite;
+}
+
+@keyframes fall{
+
+    from{
+        transform:translateY(-100px);
+    }
+
+    to{
+        transform:translateY(120vh);
+    }
+
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+}
+
+#card{
+    width:90%;
+    max-width:360px;
+    background:#fff;
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(255,105,180,.25);
+}
+
+.teddy{
+    font-size:90px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+h1{
+    color:#ff4f8b;
+    margin:15px 0;
+}
+
+#message{
+    color:#555;
+    line-height:1.8;
+    margin:20px 0;
+}
+
+button{
+    background:#ff4f8b;
+    color:white;
+    border:none;
+    padding:14px 24px;
+    border-radius:40px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#popup,
+#thanks{
+
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.45);
+
+}
+
+.popup-card,
+.thanks-card{
+
+    width:90%;
+    max-width:370px;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    text-align:center;
+    animation:popup .35s;
+
+}
+
+@keyframes popup{
+
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.popup-teddy{
+    font-size:80px;
+}
+
+.buttons{
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
+
+}
+
+.big{
+    font-size:80px;
+    animation:bounce 2s infinite;
+}
+
+#yes{
+    background:#ff4f8b;
+}
+
+#no{
+    background:#888;
+}
+
+@media(max-width:500px){
+
+    #card,
+    .popup-card,
+    .thanks-card{
+
+        width:92%;
+
+    }
+
+}

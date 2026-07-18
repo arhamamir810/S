@@ -8,41 +8,58 @@ const noBtn = document.getElementById("noBtn");
 const question = document.getElementById("question");
 
 
-let stage = 0;
+let yesIndex = 0;
 let noIndex = 0;
 
 
-let yesQuestions = [
+const yesQuestions = [
     "Do you forgive me? ❤️",
-    "Promise me you won't give up on our friendship ever again? 🥺",
+
+    "Promise me you won't give up on our friendship ever again? ❤️😊",
+
     "Promise me we will always try to understand each other? 💕",
-    "Promise me we will keep making beautiful memories together? 🧸",
-    "Can we start fresh with a smile? 😊"
+
+    "Promise me we will keep making beautiful memories together? ❤️✨",
+
+    "Can we start fresh with a smile? 😊💖"
 ];
 
 
-let noMessages = [
-    "Are you sure? 🥺",
-    "Think again, please? ❤️",
-    "I still hope we can fix things 😊",
-    "One more chance? 🧸",
-    "I will keep trying to make you smile 💕"
+const noMessages = [
+    "Are you sure? ❤️",
+
+    "Think about our beautiful memories again 😊",
+
+    "I really hope we can smile like before 💕",
+
+    "One more chance to make things better? 🧸",
+
+    "I will always value our friendship ❤️"
 ];
 
 
 startBtn.onclick = function () {
+
     popup.style.display = "flex";
-    question.innerHTML = yesQuestions[0];
+
+    yesIndex = 0;
+    noIndex = 0;
+
+    question.innerHTML = yesQuestions[yesIndex];
+
 };
+
 
 
 yesBtn.onclick = function () {
 
-    stage++;
+    yesIndex++;
 
-    if (stage < yesQuestions.length) {
+    noIndex = 0;
 
-        question.innerHTML = yesQuestions[stage];
+    if (yesIndex < yesQuestions.length) {
+
+        question.innerHTML = yesQuestions[yesIndex];
 
     } else {
 
@@ -52,6 +69,7 @@ yesBtn.onclick = function () {
     }
 
 };
+
 
 
 noBtn.onclick = function () {

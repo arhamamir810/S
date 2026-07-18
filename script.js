@@ -1,47 +1,54 @@
-const popup = document.getElementById("popup");
-const thanks = document.getElementById("thanks");
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffd6e7;
+    font-family: Arial, sans-serif;
+}
 
-const nextBtn = document.getElementById("nextBtn");
-const yesBtn = document.getElementById("yes");
-const noBtn = document.getElementById("no");
+.container {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 300px;
+}
 
-nextBtn.onclick = function () {
-    popup.style.display = "flex";
-};
+.teddy {
+    font-size: 80px;
+}
 
-yesBtn.onclick = function () {
-    popup.style.display = "none";
-    thanks.style.display = "flex";
-};
+h1 {
+    color: #ff4d88;
+}
 
-// Cute messages when "No" is clicked
-const messages = [
-    "Aww... really? 🥺",
-    "Please don't stay upset. 🌸",
-    "The teddy is trying its best! 🧸💕",
-    "One tiny smile? 😊",
-    "I'll keep trying until you smile. 💖"
-];
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4d88;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+}
 
-let index = 0;
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+}
 
-noBtn.onclick = function () {
-
-    alert(messages[index]);
-
-    index++;
-
-    if(index >= messages.length){
-        index = 0;
-    }
-
-    // Move the No button to a random position
-    const x = Math.floor(Math.random() * 120) - 60;
-    const y = Math.floor(Math.random() * 80) - 40;
-
-    noBtn.style.transform = `translate(${x}px, ${y}px)`;
-};
-
-thanks.onclick = function () {
-    thanks.style.display = "none";
-};
+.box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+}
